@@ -1,0 +1,102 @@
+<head>
+  <title>Privilege Walk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <h1>Privilege Walk</h1>
+
+  <div class="container">
+    {{ > privilege }}
+    <div class="disqus" id="disqus_thread"></div>
+  </div>
+
+  <script type="text/javascript">
+    var disqus_shortname = 'privilege-walk';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+</body>
+
+<template name="privilege">
+  {{#unless show}}
+  <p>
+    An interactive version of the <a href="http://www.buzzfeed.com/dayshavedewi/what-is-privilege" target="_blank">What is Privilege</a> article on Buzzfeed.
+  </p>
+  <div class="responsive-video">
+    <iframe src="https://www.youtube.com/embed/hD5f8GuNuGQ" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <p>
+    Please note:
+  </p>
+  <ul>
+    <li>I did not write the questions&mdash;I copied them from the above article</li>
+    <li>I do not take credit for any of the content</li>
+    <li>I do not think it's complete</li>
+    <li>Calling this exercise a "walk" in and of itself denotes privilege</li>
+    <li>I only take credit for developing this interactive experience</li>
+  </ul>
+  <p>
+    That said, see where you stand on the scale. See how you compare with others.
+  </p>
+
+  <div class="buttons">
+    <button data-start>Start</button>
+  </div>
+  {{/unless}}
+
+  {{#if show}}
+  <div class="walk">
+    <div class="sun"></div>
+    <div class="road"> </div>
+    <div class="road-lines"></div>
+    <div class="score">{{counter}}</div>
+
+    <span style="left: {{getPosition}}; color: {{colour}}" class="fa fa-user you"></span>
+  </div>
+
+  {{#if currentQuestion}}
+  <div class="questions">
+    <h2>{{currentQuestion}}</h2>
+  </div>
+  {{/if}}
+
+  {{#unless finished}}
+  <div class="buttons buttons-group">
+    <button data-back>Back</button>
+    <button data-stay>Stay</button>
+    <button data-forward>Forward</button>
+  </div>
+  {{/unless}}
+
+  {{/if}}
+
+  {{#if finished}}
+  <div class="average">
+    <span class="text">Average</span>
+    <span class="number">{{average}}</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Score</td>
+        <td>Date</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each results}}
+      <tr>
+        <td>{{score}}</td>
+        <td>{{createdAtHuman}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+</template>

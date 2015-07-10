@@ -1,0 +1,172 @@
+lightGrey = #efefef
+darkGrey = #333
+mediumGrey = #919191
+
+desktop = '(min-width: 699px)'
+
+body
+    -webkit-font-smoothing antialiased
+    font-family 'Playfair Display', Georgia, serif
+    color darkGrey
+
+    @media desktop
+        font-size 1.2em
+
+.responsive-video
+    position relative
+    margin 0 auto 20px
+    padding-bottom 56.25%
+    height 0
+
+    iframe
+        margin-top 0
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+
+p
+    line-height 1.7em
+
+.container
+    max-width 700px
+    margin 0 auto 60px
+
+h1
+    font-style italic
+    text-align center
+    line-height 1em
+
+    @media desktop
+        font-size 3em
+
+h2
+    text-align center
+
+    @media desktop
+        height 150px
+
+.buttons
+    padding-top 30px
+    text-align center
+    clearfix()
+
+button
+    background darkGrey
+    line-height 1em
+    color white
+    font inherit
+    font-size 1.5em
+    webkit-font-smoothing antialiased
+    display block
+    width 100%
+    margin-bottom 10px
+    padding 8px
+    font-weight 700
+    border 0
+
+    &:focus
+        outline none
+
+    &:hover
+        background lighten(darkGrey, 20%)
+        cursor pointer
+
+.buttons-group
+    @media desktop
+        button
+            width 32%
+            float left
+            margin-right 1%
+
+.walk
+    background #B3D9EC
+    height 200px
+    width 100%
+    position relative
+
+.sun, .road, .road-lines, .score
+    position absolute
+
+.sun
+    width 60px
+    height 60px
+    top 10px
+    left 10px
+    border-radius 50%
+    background gold
+
+.score
+    top 0
+    right 10px
+    font-size 50px
+    color darkGrey
+    line-height 50px
+
+.road
+    background darkGrey
+    height 60px
+    width 100%
+    bottom 0
+    left 0
+
+.road-lines
+    width 100%
+    height 0
+    left 0
+    bottom 30px
+    border-bottom 3px dashed gold
+
+.you
+    font-size 60px
+    position absolute
+    bottom 10px
+    transform translateX(-50%)
+
+a
+    font-weight 700
+    text-decoration none
+    color mediumGrey
+
+    &:hover
+        text-decoration underline
+
+.average
+    width 100px
+    height 100px
+    border-radius 50%
+    background lightGrey
+    margin 20px auto
+    text-align center
+
+    .text
+        display block
+        font-size 0.9em
+        padding-top 20px
+        line-height 1em
+
+    .number
+        font-weight 700
+        display block
+        font-size 2em
+        line-height 1em
+        padding-top 5px
+
+table
+    width 100%
+
+    td
+        padding 5px
+
+    tbody
+        tr:nth-child(2n)
+            background lightGrey
+
+    thead
+        td
+            background darkGrey
+            color white
+
+.disqus
+    margin-top 50px
